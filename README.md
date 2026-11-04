@@ -12,12 +12,15 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 
 ## Movies & TV app foundation
 - `movies.html` is the dedicated, mobile-first Movies & TV experience.
-- Includes title search, movie/series filter, genre chips, sorting, title-detail modal, and a device-local watchlist.
+- Full-width responsive app layout; mobile slide-out navigation supports edge-swipe right to open, left to close, tap-outside, and Escape.
+- Dedicated sections for Discover, Movies, TV Shows, Anime, Release Calendar, Continue Watching, Watch History, Watchlist, Collections, and Settings.
+- Catalog filters include title/keyword search, genre, release year, year range, decade, minimum rating, original language, country, content type, and sort order.
+- Includes trending/recent/series shelves, title details, local watchlist and local history.
 - Current entries are clearly labeled preview/sample data; this is not a live provider catalog.
 - Trailer lookup and title-specific watch availability remain pending secured backend/provider integrations.
 
 ## Current website foundation
-- Responsive, mobile-first visual foundation with cinematic dark styling and green/orange accents.
+- Responsive, full-screen mobile-first Movies & TV app with cinematic dark styling and green/orange accents.
 - Navigation for Home, Movies & TV, Sports, Music, Watch Hub, and Games.
 - Official external links to selected streaming services.
 - Jamal assistant panel placeholder for the future central assistant integration.
