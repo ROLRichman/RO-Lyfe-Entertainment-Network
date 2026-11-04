@@ -10,6 +10,12 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 - RO'Lyfe Gaming remains a separate gaming project. The Games Arcade section links to it; it does not merge or duplicate its code.
 - Collectibles / comics / baseball cards remain a separate future-project idea and are not part of this repository.
 
+## Movies & TV app foundation
+- `movies.html` is the dedicated, mobile-first Movies & TV experience.
+- Includes title search, movie/series filter, genre chips, sorting, title-detail modal, and a device-local watchlist.
+- Current entries are clearly labeled preview/sample data; this is not a live provider catalog.
+- Trailer lookup and title-specific watch availability remain pending secured backend/provider integrations.
+
 ## Current website foundation
 - Responsive, mobile-first visual foundation with cinematic dark styling and green/orange accents.
 - Navigation for Home, Movies & TV, Sports, Music, Watch Hub, and Games.
@@ -34,12 +40,14 @@ API credentials must never be committed to this repository. Provider integration
 
 ## Planned build sequence
 1. Verify the Pages deployment and polish responsive layouts.
-2. Add movie/TV catalog discovery and authorized trailer metadata.
-3. Add region-aware Watch Hub availability and official provider links.
-4. Connect sports data through the separate sports backend after its health is confirmed.
-5. Add music metadata and authorized listening destinations.
-6. Connect Jamal through the central secure assistant service.
-7. Add accounts, watchlists, and licensed playback only after product, security, and rights review.
+2. Replace the Movies & TV preview data with a secured live catalog endpoint; test search, discovery, details and rate-limit handling.
+3. Add authorized trailer metadata and official YouTube embeds after commercial-use permission is confirmed.
+4. Add region-aware Watch Hub availability and official provider links.
+5. Connect sports data through the separate sports backend after its health is confirmed.
+6. Add music metadata and authorized listening destinations.
+7. Connect Jamal through the central secure assistant service.
+8. Add cloud accounts and cross-device watchlists; the current watchlist is device-local only.
+9. Add licensed playback only after product, security, and rights review.
 
 ## GitHub Pages
 The site is configured to publish from the `main` branch. The expected project URL is:
