@@ -18,6 +18,9 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 - Mobile menu opens as a floating panel, closes after selection, and supports Escape / outside-click dismissal.
 - Clear status labels where data providers and playback are not connected.
 
+## Provider review
+See [docs/API-PROVIDER-REVIEW.md](docs/API-PROVIDER-REVIEW.md) for the current API rights, costs, attribution requirements, and recommended integration sequence. Provider terms must be re-checked before commercial launch.
+
 ## Integration status
 The site currently does **not** have verified live catalog search, scores, trailer API calls, music API calls, personal accounts, watchlists, or in-site streaming playback. Do not present demo placeholders as live data.
 
