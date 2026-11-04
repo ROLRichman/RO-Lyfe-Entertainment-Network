@@ -7,7 +7,7 @@
 
 Use **Trakt Standard as the first candidate for in-app movie/TV discovery**, subject to creating the app registration and testing required endpoints/rate limits. Use **KinoCheck as a trailer source candidate** after confirming commercial deployment expectations with the provider. Keep Watch Hub availability links as official outbound links until a commercial streaming-availability license makes financial sense.
 
-Do not use any API key in browser JavaScript. Provider calls should go through a secured backend function. The Entertainment Network needs its own backend project; do not reuse the Sports or Trading Intelligence Supabase projects without an explicit project decision.
+Do not use any API key in browser JavaScript. Provider calls should go through a secured backend function. Current architecture decision: use the existing `ROLyfe-Live-Sports-Center` Supabase project for Entertainment integrations, but keep them isolated in dedicated `entertainment-*` Edge Functions and Entertainment-specific tables/configuration. Do not merge or modify Sports function behavior, and do not touch Trading Intelligence or the paused Auction Capital Machine project. Store credentials only in Supabase secrets.
 
 ## Provider findings
 
@@ -81,7 +81,7 @@ Official reference:
 ## First implementation plan
 
 1. Register the Trakt developer app under the RO'Lyfe Entertainment Network identity. Do not create extra apps to work around limits.
-2. Confirm the exact Entertainment Supabase project before storing credentials or deploying Edge Functions. Existing Sports and Trading projects remain untouched.
+2. Use the already selected `ROLyfe-Live-Sports-Center` Supabase project for isolated Entertainment Edge Functions; leave Sports endpoints, Trading Intelligence and Auction Capital Machine unchanged.
 3. Build a server-side catalog endpoint for public Trakt discovery, using documented public endpoints only, with rate-limit handling and source/attribution metadata.
 4. Add trailer lookup through KinoCheck by IMDb ID or TMDB ID when available; embed only the official YouTube player and link to KinoCheck. Confirm the commercial permission question first.
 5. Keep Watch Hub as official external-provider links until an appropriate commercial availability-data license is justified.
