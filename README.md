@@ -14,7 +14,8 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 - `movies.html` is the dedicated, mobile-first Movies & TV experience.
 - Full-width responsive app layout; mobile slide-out navigation supports edge-swipe right to open, left to close, tap-outside, and Escape.
 - Dedicated sections for Discover, Movies, TV Shows, Anime, Release Calendar, Continue Watching, Watch History, Watchlist, Collections, and Settings.
-- Catalog filters include title/keyword search, genre, release year, year range, decade, minimum rating, original language, country, content type, and sort order.
+- Catalog filters include title/keyword search, genre (including Horror, Crime, Romance, Family, Western and War), release year, year range, decade, minimum rating, original language, country, content type, and sort order.
+- Discover includes a dedicated Horror After Dark shelf and one-tap Horror genre filtering.
 - Includes trending/recent/series shelves, title details, local watchlist and local history.
 - Current entries are clearly labeled preview/sample data; this is not a live provider catalog.
 - Trailer lookup and title-specific watch availability remain pending secured backend/provider integrations.
