@@ -38,7 +38,7 @@ async function load(viewName=view){
  document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
  $("artistDetail").classList.remove("open");$("results").innerHTML="";status("Loading Last.fm discovery…");
  try{
-  let items=[];
+  let items=[],profileNoScrobbles=false;
   const genre= view==="rnb"?"r&b":"hip-hop";
   if(view==="artists"){
    const data=await api("chart.getTopArtists");
@@ -50,7 +50,7 @@ async function load(viewName=view){
     api("tag.getTopTracks",{tag:genre,limit:"5"}),
     api("tag.getTopAlbums",{tag:genre,limit:"5"})
    ]);
-   const a=artists.topartists?.artist||[],t=tracks.tracks?.track||[],al=albums.albums?.album||[];
+   const a=artists.topartists?.artist||[],t=tracks.toptracks?.track||[],al=albums.topalbums?.album||[];
    items=[
     ...a.map((x,i)=>card(x.name,(x.listeners?Number(x.listeners).toLocaleString()+" listeners":"Genre artist"),i,{type:"artist",value:x.name},"ARTIST")),
     ...t.map((x,i)=>card(x.name,x.artist?.name||"Track",i,{type:"track",value:x.name+"|"+(x.artist?.name||"")},"TRACK")),
@@ -63,7 +63,7 @@ async function load(viewName=view){
     api("tag.getTopAlbums",{tag:"hip-hop",limit:"8"}),
     api("tag.getTopAlbums",{tag:"r&b",limit:"8"})
    ]);
-   const h=hiphop.albums?.album||[],r=rnb.albums?.album||[];
+   const h=hiphop.topalbums?.album||[],r=rnb.topalbums?.album||[];
    items=[
     ...h.map((x,i)=>card(x.name,(x.artist?.name||"Unknown artist")+" · Hip-Hop",i,{type:"artist",value:x.artist?.name||x.name},"HIP-HOP ALBUM")),
     ...r.map((x,i)=>card(x.name,(x.artist?.name||"Unknown artist")+" · R&B",i,{type:"artist",value:x.artist?.name||x.name},"R&B ALBUM"))
@@ -92,10 +92,10 @@ async function load(viewName=view){
     ...aa.map((x,i)=>card(x.name,(x.artist?.name||"Album")+" · "+(x.playcount||0)+" plays",i,{type:"artist",value:x.artist?.name||x.name},"YOUR ALBUM")),
     ...ar.map((x,i)=>card(x.name,(x.playcount||0)+" plays",i,{type:"artist",value:x.name},"YOUR ARTIST"))
    ];
-   if(!Number(u.playcount||0)) status("Your profile is connected, but Last.fm currently shows no listening history. Start scrobbling to populate your personal charts.");
+   profileNoScrobbles=!Number(u.playcount||0);
   }
   render(items);
-  if(items.length)status(view==="profile"?"Profile loaded.":"Last.fm results loaded.");
+  if(items.length)status(view==="profile"?(profileNoScrobbles?"No scrobbles yet — start scrobbling to build your personal charts.":"Profile loaded."):"Last.fm results loaded.");
  }catch(e){status(e.message+" Check that LASTFM_API_KEY is configured in the Supabase Edge Function project.",true);}
 }
 async function searchArtist(term){$("artistDetail").classList.remove("open");$("results").innerHTML="";status("Searching Last.fm…");try{const data=await api("artist.search",{artist:term});const list=data.results?.artistmatches?.artist||[];render(list.map((x,i)=>card(x.name,(x.listeners?Number(x.listeners).toLocaleString()+" listeners":"Artist match"),i,{type:"artist",value:x.name},"MATCH")));$("sectionTitle").textContent="Artist Search";$("sectionSub").textContent="Matches for “"+term+"”";status(list.length?"Search results loaded.":"No matching artists found.");}catch(e){status(e.message,true);}}
