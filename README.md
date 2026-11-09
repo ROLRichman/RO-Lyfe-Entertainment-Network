@@ -22,7 +22,8 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 
 ## Current website foundation
 - Responsive, full-screen mobile-first Movies & TV app with cinematic dark styling and green/orange accents.
-- Navigation for Home, Movies & TV, Sports, Music, Watch Hub, and Games.
+- Navigation for Home, Movies & TV, Sports, Music, Videos, Watch Hub, and Games.
+- The Games Arcade doorway links to the separate RO’Lyfe Gaming hub; the Video doorway links to the separate RO’Lyfe Vision Hub.
 - Official external links to selected streaming services.
 - Jamal assistant panel placeholder for the future central assistant integration.
 - Mobile menu opens as a floating panel, closes after selection, and supports Escape / outside-click dismissal.
@@ -33,9 +34,12 @@ See [docs/API-PROVIDER-REVIEW.md](docs/API-PROVIDER-REVIEW.md) for the current A
 
 ## Last.fm Music integration
 - A dedicated `music.html` discovery page is now in the site, linked from the main Music navigation and tile.
+- Music views include global artists/tracks/tags, Hip-Hop and R&B artist/track/album shelves, tagged trending albums, and the `RichROLyfe` personal profile (scrobbles, top artists and top albums when listening data exists).
+- Last.fm does not expose one universal global top-albums chart; the current album shelves use genre-tag rankings, and personal/artist top albums use their respective documented endpoints.
+- RO’Lyfe Radio is a coming-soon concept, not a live station. Last.fm's former Radio API is deprecated and its data API does not grant music-streaming rights.
 - A separate `entertainment-lastfm` Supabase Edge Function is deployed in the selected `ROLyfe-Live-Sports-Center` project. It is isolated from the Sports functions and proxies a limited set of read-only Last.fm discovery methods.
 - The function reads `LASTFM_API_KEY` from Supabase Edge Function secrets; the key is never placed in GitHub or browser code.
-- **Runtime verification is pending:** the connected tools confirmed the function is deployed, but did not provide a successful live Last.fm response. Confirm that `LASTFM_API_KEY` exists in this specific Supabase project's Edge Function Secrets, then test the page.
+- **Runtime verification is pending:** the connected tools confirmed function version 2 is deployed, but did not provide a successful live Last.fm response. Confirm that `LASTFM_API_KEY` exists in this specific Supabase project's Edge Function Secrets, then test the page.
 - Last.fm's API introduction asks developers planning commercial use to contact `partners@last.fm`; obtain confirmation before commercial launch. The page provides discovery metadata only and does not stream music.
 
 ## Integration status
