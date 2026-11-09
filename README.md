@@ -31,6 +31,13 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 ## Provider review
 See [docs/API-PROVIDER-REVIEW.md](docs/API-PROVIDER-REVIEW.md) for the current API rights, costs, attribution requirements, and recommended integration sequence. Provider terms must be re-checked before commercial launch.
 
+## Last.fm Music integration
+- A dedicated `music.html` discovery page is now in the site, linked from the main Music navigation and tile.
+- A separate `entertainment-lastfm` Supabase Edge Function is deployed in the selected `ROLyfe-Live-Sports-Center` project. It is isolated from the Sports functions and proxies a limited set of read-only Last.fm discovery methods.
+- The function reads `LASTFM_API_KEY` from Supabase Edge Function secrets; the key is never placed in GitHub or browser code.
+- **Runtime verification is pending:** the connected tools confirmed the function is deployed, but did not provide a successful live Last.fm response. Confirm that `LASTFM_API_KEY` exists in this specific Supabase project's Edge Function Secrets, then test the page.
+- Last.fm's API introduction asks developers planning commercial use to contact `partners@last.fm`; obtain confirmation before commercial launch. The page provides discovery metadata only and does not stream music.
+
 ## Integration status
 The site currently does **not** have verified live catalog search, scores, trailer API calls, music API calls, personal accounts, watchlists, or in-site streaming playback. Do not present demo placeholders as live data.
 
