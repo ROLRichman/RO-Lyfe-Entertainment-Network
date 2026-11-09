@@ -95,7 +95,7 @@ async function load(viewName=view){
    profileNoScrobbles=!Number(u.playcount||0);
   }
   render(items);
-  if(items.length)status(view==="profile"?(profileNoScrobbles?"No scrobbles yet — start scrobbling to build your personal charts.":"Profile loaded."):"Last.fm results loaded.");
+  if(view==="profile"&&profileNoScrobbles)status("Your Last.fm profile is connected, but there are no scrobbles yet. Start scrobbling to build your personal charts.");else if(items.length)status(view==="profile"?"Profile loaded.":"Last.fm results loaded.");
  }catch(e){status(e.message+" Check that LASTFM_API_KEY is configured in the Supabase Edge Function project.",true);}
 }
 async function searchArtist(term){$("artistDetail").classList.remove("open");$("results").innerHTML="";status("Searching Last.fm…");try{const data=await api("artist.search",{artist:term});const list=data.results?.artistmatches?.artist||[];render(list.map((x,i)=>card(x.name,(x.listeners?Number(x.listeners).toLocaleString()+" listeners":"Artist match"),i,{type:"artist",value:x.name},"MATCH")));$("sectionTitle").textContent="Artist Search";$("sectionSub").textContent="Matches for “"+term+"”";status(list.length?"Search results loaded.":"No matching artists found.");}catch(e){status(e.message,true);}}
