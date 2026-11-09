@@ -25,7 +25,7 @@ RO'Lyfe Entertainment Network is the discovery front door for movies and televis
 - Navigation for Home, Movies & TV, Sports, Music, Videos, Watch Hub, and Games.
 - The Games Arcade doorway links to the separate RO’Lyfe Gaming hub; the Video doorway links to the separate RO’Lyfe Vision Hub.
 - Official external links to selected streaming services.
-- Jamal assistant panel placeholder for the future central assistant integration.
+- One central Jamal launcher links to the RO’Lyfe assistant; duplicate local assistant UI was removed.
 - Mobile menu opens as a floating panel, closes after selection, and supports Escape / outside-click dismissal.
 - Clear status labels where data providers and playback are not connected.
 
