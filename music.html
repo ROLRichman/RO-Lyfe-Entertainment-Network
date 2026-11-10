@@ -18,7 +18,7 @@
 <main class="shell">
 <section class="hero"><div class="eyebrow">RO'LYFE ENTERTAINMENT NETWORK</div><h1>Find your next <em>sound.</em></h1><p>Explore artists, tracks, albums and music trends. Discover something new, follow the artists you love, and find your next listening destination.</p>
 <div class="tools"><form class="search" id="searchForm"><input id="artistQuery" type="search" placeholder="Search an artist…" aria-label="Search artists"><button class="primary" type="submit">Search</button></form></div>
-<div class="tabs" role="group" aria-label="Music charts"><button class="active" data-view="artists">Top Artists</button><button data-view="hiphop">Hip-Hop</button><button data-view="oldschool">Old School</button><button data-view="eastcoast">East Coast</button><button data-view="westcoast">West Coast</button><button data-view="southern">Southern</button><button data-view="underground">Underground</button><button data-view="rnb">R&amp;B</button><button data-view="albums">Trending Albums</button><button data-view="tracks">Top Tracks</button><button data-view="tags">Genres &amp; Tags</button><button data-view="profile">My Profile</button></div>
+<div class="tabs" role="group" aria-label="Music charts"><button class="active" data-view="artists">Top Artists</button><button data-view="hiphop">Hip-Hop</button><button data-view="oldschool">Old School</button><button data-view="eastcoast">East Coast</button><button data-view="westcoast">West Coast</button><button data-view="southern">Southern</button><button data-view="trap">Trap</button><button data-view="drill">Drill</button><button data-view="underground">Underground</button><button data-view="rnb">R&amp;B</button><button data-view="albums">Trending Albums</button><button data-view="tracks">Top Tracks</button><button data-view="tags">Genres &amp; Tags</button><button data-view="profile">My Profile</button></div>
 </section>
 <section><div class="head"><div><h2 id="sectionTitle">Trending Artists</h2><p id="sectionSub">Popular artists from the Last.fm global chart</p></div><span class="meta" id="sourceLabel">SOURCE: LAST.FM</span></div><div id="status" class="status">Connecting to music discovery…</div><div class="grid" id="results" aria-live="polite"></div></section>
 <section class="detail" id="artistDetail"><button id="closeDetail" style="float:right">Close ×</button><div id="detailContent"></div></section>
@@ -46,13 +46,15 @@ async function load(viewName=view){
    eastcoast:"east coast hip hop",
    westcoast:"west coast hip hop",
    southern:"southern hip hop",
+   trap:"trap",
+   drill:"drill",
    underground:"underground hip hop"
   })[view]||"hip-hop";
   if(view==="artists"){
    const data=await api("chart.getTopArtists");
    items=(data.artists?.artist||[]).map((x,i)=>card(x.name,(x.listeners?Number(x.listeners).toLocaleString()+" listeners":"Popular artist"),i,{type:"artist",value:x.name},"ARTIST"));
    $("sectionTitle").textContent="Trending Artists";$("sectionSub").textContent="Popular artists from the Last.fm global chart";
-  }else if(["hiphop","rnb","oldschool","eastcoast","westcoast","southern","underground"].includes(view)){
+  }else if(["hiphop","rnb","oldschool","eastcoast","westcoast","southern","trap","drill","underground"].includes(view)){
    const [artists,tracks,albums,tagInfo]=await Promise.all([
     api("tag.getTopArtists",{tag:genre,limit:"5"}),
     api("tag.getTopTracks",{tag:genre,limit:"5"}),
@@ -65,7 +67,7 @@ async function load(viewName=view){
     ...t.map((x,i)=>card(x.name,x.artist?.name||"Track",i,{type:"track",value:x.name+"|"+(x.artist?.name||"")},"TRACK")),
     ...al.map((x,i)=>card(x.name,x.artist?.name||"Album",i,{type:"artist",value:x.artist?.name||x.name},"ALBUM"))
    ];
-   const categoryLabels={hiphop:"Hip-Hop",rnb:"R&B",oldschool:"Old School Hip-Hop",eastcoast:"East Coast Hip-Hop",westcoast:"West Coast Hip-Hop",southern:"Southern Hip-Hop",underground:"Underground Hip-Hop"};
+   const categoryLabels={hiphop:"Hip-Hop",rnb:"R&B",oldschool:"Old School Hip-Hop",eastcoast:"East Coast Hip-Hop",westcoast:"West Coast Hip-Hop",southern:"Southern Hip-Hop",trap:"Trap",drill:"Drill / UK Rap",underground:"Underground Hip-Hop"};
    $("sectionTitle").textContent=(categoryLabels[view]||"Hip-Hop")+" Spotlight";
    $("sectionSub").textContent="Artists, tracks and albums · "+(tg.reach?Number(tg.reach).toLocaleString()+" listeners reached · ":"")+(tg.taggings?Number(tg.taggings).toLocaleString()+" community tags":"Last.fm genre data");
   }else if(view==="albums"){
