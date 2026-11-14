@@ -13,6 +13,7 @@
 @media(max-width:650px){.shell{padding:0 16px}.topbar>.shell{position:relative}.nav{height:64px;gap:12px}.navlinks{display:none}.menu-toggle{display:block}.brand{flex:1}.mobile-menu{position:absolute;top:calc(100% + 8px);left:16px;right:16px;z-index:30;display:none;padding:12px;gap:8px;flex-wrap:wrap;max-height:min(65vh,340px);overflow-y:auto;background:#080c0bf7;backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.mobile-menu.open{display:flex}.mobile-menu a{flex:1 1 calc(33.333% - 8px);text-align:center;padding:10px 8px;border:1px solid var(--line);border-radius:10px;color:#d4dfd7;font-size:13px}.section{scroll-margin-top:84px}.hero{padding:36px 0 26px;min-height:0;gap:20px}.hero h1{font-size:47px;letter-spacing:-2px}.hero p{font-size:15px}.hero-art{min-height:175px}.searchrow{margin-bottom:22px}.section{padding:20px 0 25px}.section h2{font-size:21px}.tiles,.cards{gap:10px}.tile{padding:14px;min-height:130px}.poster{height:120px}.card-body{padding:11px}.assistant{right:12px;bottom:max(12px,env(safe-area-inset-bottom))}.footer{padding-bottom:90px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
+  <link rel="stylesheet" href="rol-engine-identity.css?v=20261113-1">
 </head>
 <body>
 <header class="topbar"><div class="shell"><nav class="nav" aria-label="Main navigation">
@@ -21,7 +22,8 @@
 <div class="nav-actions"><button class="iconbtn" id="searchFocus" aria-label="Focus search">⌕</button><button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">Menu</button></div>
 </nav><div class="mobile-menu" id="mobileMenu"><a href="#home">Home</a><a href="movies.html#guide">TV Guide</a><a href="movies.html">Movies App</a><a href="#movies">Movies & TV</a><a href="#sports">Sports</a><a href="music.html">Music</a><a href="#watch">Watch Hub</a><a href="https://rolrichman.github.io/rolyfe-video-hub/" target="_blank" rel="noopener">Videos</a><a href="#games">Games</a></div></div></header>
 <main class="shell" id="home">
-<section class="hero"><div><div class="eyebrow">One network. Every kind of entertainment.</div><h1>Find your next <em>favorite.</em></h1><p>Explore movies, series, sports, music and games in one connected entertainment destination.</p><div class="actions"><a class="primary" href="movies.html">Open Movies & TV</a><a class="secondary" href="#watch">Find where to watch</a></div></div><div class="hero-art" role="img" aria-label="Abstract cinematic green and orange artwork"><div class="art-copy"><strong>Entertainment, connected.</strong><small>Discover • Explore • Enjoy</small></div></div></section>
+<section class="hero rol-engine-hero" data-rol-engine="cinema"><div><div class="eyebrow">One network. Every kind of entertainment.</div><h1>Find your next <em>favorite.</em></h1><p>Explore movies, series, sports, music and games in one connected entertainment destination.</p><div class="actions"><a class="primary" href="movies.html">Open Movies & TV</a><a class="secondary" href="#watch">Find where to watch</a></div></div><div class="hero-art" role="img" aria-label="Abstract cinematic green and orange artwork"><div class="rol-engine-visual" aria-hidden="true"><span class="rol-visual-halo"></span><span class="rol-visual-ring"></span><span class="rol-visual-ring ring-two"></span><span class="rol-visual-core" data-mark="▶"></span><span class="rol-visual-signal"></span><span class="rol-visual-caption">CINEMA · SERIES · STREAMING</span></div><div class="art-copy"><strong>Entertainment, connected.</strong><small>Discover • Explore • Enjoy</small></div></div><button class="rol-motion-toggle" type="button" data-rol-motion-toggle aria-pressed="false">Pause motion</button>
+</section>
 <div class="searchrow"><input id="siteSearch" type="search" placeholder="Search movies, shows, teams, artists…" aria-label="Search entertainment"><button class="primary" id="searchButton">Search</button></div>
 <section class="section"><div class="section-head"><div><h2>Explore the network</h2><p>Choose your next destination.</p></div></div><div class="tiles">
 <a class="tile" href="movies.html#guide"><div class="emoji">📺</div><h3>TV &amp; Movie Guide</h3><p>See what is in theaters, streaming now and coming soon. Browse previews first.</p></a>
@@ -74,5 +76,6 @@ document.getElementById('siteSearch').addEventListener('keydown',e=>{if(e.key===
 </a>
 
 <script src="https://rolrichman.github.io/rolyfe-egaming/shared/radio-player.js"></script>
+<script>(()=>{const root=document.documentElement;document.querySelectorAll('[data-rol-motion-toggle]').forEach(button=>button.addEventListener('click',()=>{const paused=root.classList.toggle('rol-motion-paused');button.setAttribute('aria-pressed',String(paused));button.textContent=paused?'Resume motion':'Pause motion';}));})();</script>
 </body>
 </html>
