@@ -74,3 +74,11 @@ API credentials must never be committed to this repository. Provider integration
 ## GitHub Pages
 The site is configured to publish from the `main` branch. The expected project URL is:
 https://rolrichman.github.io/RO-Lyfe-Entertainment-Network/
+
+
+## Shared RO’Lyfe front-door preview access
+
+- This site's public front door uses the common remembered-device gateway key `rolyfe.shared.preview.access.v1`.
+- Entering once on any configured RO’Lyfe media front door on `rolrichman.github.io` lets visitors move among Entertainment, Live Sports, Gaming, Vision Hub and JUST LISTENING without another preview prompt on the same browser.
+- This is a convenience preview, not real authentication or a security barrier. It does not protect private content, APIs, or page source. Secure account sign-in / single sign-on is a later phase.
+- The welcome screen announces a planned first-three-months-free launch offer; confirm final commercial terms before accepting payments or publishing final pricing.
