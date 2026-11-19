@@ -64,13 +64,6 @@ API credentials must never be committed to this repository. Provider integration
 8. Add cloud accounts and cross-device watchlists; the current watchlist is device-local only.
 9. Add licensed playback only after product, security, and rights review.
 
-## Shared front-door preview access
-
-- The homepage uses a branded remembered-device preview gateway with the shared key `rolyfe.shared.preview.access.v1`.
-- The Entertainment Network and Live Sports Center use the same key on the shared `rolrichman.github.io` origin, so entering once on one front door skips the preview prompt on the other.
-- The gateway is a convenience welcome screen only. It is not authentication, does not protect private content, and does not create user accounts. Secure cross-project sign-in is deferred until the approved authentication phase.
-- The welcome screen announces the planned first-three-months-free launch offer. Confirm the commercial terms before accepting payments or publishing final pricing.
-
 ## GitHub Pages
 The site is configured to publish from the `main` branch. The expected project URL is:
 https://rolrichman.github.io/RO-Lyfe-Entertainment-Network/
