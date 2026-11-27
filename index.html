@@ -14,6 +14,41 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
   <link rel="stylesheet" href="rol-engine-identity.css?v=20261113-1">
+<script>if(new URLSearchParams(location.search).get('embed')==='connect')document.documentElement.classList.add('connect-entertainment');</script>
+<style id="connect-entertainment-layout">
+html.connect-entertainment,html.connect-entertainment body{width:100%;max-width:100%;min-width:0!important;overflow-x:hidden;scroll-padding-top:10px}
+html.connect-entertainment .shell{width:100%;max-width:100%;min-width:0;padding:0 10px!important}
+html.connect-entertainment .topbar{position:static!important}
+html.connect-entertainment .nav{height:auto;min-height:48px;flex-wrap:wrap;gap:8px;padding:8px 0}
+html.connect-entertainment .brand{flex:1;white-space:normal}
+html.connect-entertainment .nav-actions{flex-wrap:wrap;min-width:0}
+html.connect-entertainment .navlinks{display:none!important}
+html.connect-entertainment .menu-toggle{display:block!important}
+html.connect-entertainment .mobile-menu{position:static!important;width:100%;max-width:100%;margin:0 0 8px;padding:8px;gap:6px}
+html.connect-entertainment .mobile-menu.open{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,100px),1fr))}
+html.connect-entertainment .mobile-menu a{min-width:0;overflow-wrap:anywhere;padding:8px 5px}
+html.connect-entertainment .hero{grid-template-columns:minmax(0,1fr)!important;min-height:0;padding:16px 0;gap:10px}
+html.connect-entertainment .hero h1{font-size:clamp(26px,8vw,48px);letter-spacing:-1px;overflow-wrap:anywhere}
+html.connect-entertainment .hero-art{min-height:140px;padding:12px}
+html.connect-entertainment .hero p{font-size:14px}
+html.connect-entertainment .section{padding:14px 0;scroll-margin-top:10px}
+html.connect-entertainment .section-head{flex-wrap:wrap;align-items:start;gap:5px}
+html.connect-entertainment .section-head>*{min-width:0;max-width:100%;overflow-wrap:anywhere}
+html.connect-entertainment .cards,html.connect-entertainment .tiles{grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))!important;gap:8px}
+html.connect-entertainment .card,html.connect-entertainment .tile{min-width:0;max-width:100%;overflow-wrap:anywhere}
+html.connect-entertainment .poster{height:105px}
+html.connect-entertainment .tile{padding:12px;min-height:0}
+html.connect-entertainment .searchrow{flex-wrap:wrap;margin:8px 0}
+html.connect-entertainment .searchrow input{flex:1 1 130px}
+html.connect-entertainment .assistant,html.connect-entertainment #rol-global-tools,html.connect-entertainment #rolCentralJamal{display:none!important}
+html.connect-entertainment .rol-access-exit{position:static!important;inset:auto!important;margin:4px;max-width:100%;font-size:11px}
+html.connect-entertainment #rolRadioRoot{position:fixed!important;right:8px!important;bottom:8px!important;width:max-content!important;max-width:calc(100vw - 16px)!important}
+html.connect-entertainment #rolRadioLauncher{position:static!important}
+html.connect-entertainment #rolRadioPanel{position:fixed!important;inset:auto 8px 64px auto!important;width:min(360px,calc(100vw - 16px))!important;max-width:none!important;max-height:calc(100dvh - 80px)!important;overflow:auto!important}
+html.connect-entertainment #rolRadioPanel *{min-width:0;max-width:100%;overflow-wrap:anywhere}
+html.connect-entertainment .footer{padding-bottom:75px}
+@media(max-width:390px){html.connect-entertainment .cards,html.connect-entertainment .tiles{grid-template-columns:minmax(0,1fr)!important}}
+</style>
 </head>
 <body>
 <header class="topbar"><div class="shell"><nav class="nav" aria-label="Main navigation">
